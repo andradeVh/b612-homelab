@@ -69,7 +69,7 @@ Para aumentar a segurança do servidor, o acesso via senha foi desabilitado, per
 ### 1. Gerar Par de Chaves (No seu Computador Local)
 Abra o terminal na sua máquina pessoal e execute:
 ```bash
-ssh-keygen
+ssh-keygen -t ed25519 -C "teu-email@gmail.com"
 ```
 >Escolha onde salvar a key, por exemplo, /home/user/.ssh/id_pc_pessoal, e depois será necessário uma senha mestre
 
@@ -77,7 +77,7 @@ ssh-keygen
 ### 2. Enviar a Chave Pública para o Servidor
 
 ```bash
-ssh-copy-id -i ~/.ssh/id_ed25519.pub usuario@ip-do-servidor
+ssh-copy-id -i ~/.ssh/id_pc_pessoal.pub usuario@ip-do-servidor
 ```
 
 ### 3. Desabilitar Login por Senha no Servidor
