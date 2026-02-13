@@ -22,11 +22,18 @@ b612-homelab/
 │   ├── teamspeak/
 │   │   └── docker-compose.yml   # Servidor de Voz VOIP
 │   └── minecraft/
-│       └── docker-compose.yml   # Servidor de Jogo (Sandbox)
+│       └── docker-compose.yml   # Crafty Controller + Playit Agent
+│       └── docker/              # Volumes persistentes (Servers, Logs, Backups)
 └── scripts/
     ├── healthcheck.sh           # Lógica de auto-recuperação
     └── check.log                # Histórico de integridade e auditoria
 ```
+
+## Como Executar
+1. Clone o repositório: `git clone https://github.com/andradeVh/b612-homelab.git`
+1. Acesse a pasta do serviço desejado: `cd services/teamspeak`
+1. Inicie o container: `docker-compose up -d`
+1. Configure corretamente o script de rotina `healthcheck.sh` e o arquivo `.env`
 
 ## Mecanismo de Self-Healing :lizard:
 
@@ -43,6 +50,17 @@ Instalação no Cron:
 ```bash
 * * * * /bin/bash /home/seu-usuario/b612-homelab/scripts/healthcheck.sh
 ```
+
+## Limites de Recursos
+
+Para garantir a estabilidade do servidor Ubuntu e evitar que um serviço consuma todos os recursos do Host, limitamos o uso de recursos:
+
+| Serviço | Limite de CPU | Limite de RAM | Reserva (Garantida) |
+| :--- | :--- | :--- | :--- |
+| **TeamSpeak** | 0.50 (50%) | 512MB | 128MB |
+| **Playit.gg** | 0.20 (20%) | 128MB | - |
+
+Isso garante que, mesmo sob carga pesada ou ataques, o sistema operacional mantenha recursos livres para a gerência via SSH.
 
 ## Segurança: Acesso via Chave SSH (Sem Senha) :shipit:
 
