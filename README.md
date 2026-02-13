@@ -4,13 +4,14 @@
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-E94331?style=for-the-badge&logo=ubuntu&logoColor=white)
 ![Shell Script](https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
 
+
 O **Asteroid B-612** é um ecossistema de infraestrutura resiliente focado em alta disponibilidade e automação. O projeto utiliza **Docker** para virtualização e **Shell Scripting** para garantir que os serviços críticos se recuperem automaticamente de falhas.
 
 ---
 
 ## Tecnologias e Ferramentas
 * **Host OS:** Ubuntu Server
-* **Orquestração:** Docker & Docker Compose v5.0.1
+* **Orquestração:** Docker & Docker Compose v5.0.1 :whale:
 * **Automação:** Bash Scripting + Crontab
 * **Serviços Atuais:** TeamSpeak Server & Playit.gg (Network Tunneling) + Crafty Controller & Playit.gg
 
@@ -27,7 +28,7 @@ b612-homelab/
     └── check.log                # Histórico de integridade e auditoria
 ```
 
-## Mecanismo de Self-Healing
+## Mecanismo de Self-Healing :lizard:
 
 Para evitar downtime, o sistema utiliza um agente de monitorização assíncrono que verifica o estado dos containers a cada 60 minutos.
 
@@ -43,9 +44,9 @@ Instalação no Cron:
 * * * * /bin/bash /home/seu-usuario/b612-homelab/scripts/healthcheck.sh
 ```
 
-## Segurança: Acesso via Chave SSH (Sem Senha)
+## Segurança: Acesso via Chave SSH (Sem Senha) :shipit:
 
-Para aumentar a segurança do servidor, o acesso via senha foi desabilitado, permitindo apenas conexões via par de chaves criptográficas.
+Para aumentar a segurança do servidor, o acesso via senha foi desabilitado, permitindo apenas conexões via par de chaves criptografadas.
 
 ### 1. Gerar Par de Chaves (No seu Computador Local)
 Abra o terminal na sua máquina pessoal e execute:
@@ -66,7 +67,8 @@ ssh-copy-id -i ~/.ssh/id_ed25519.pub usuario@ip-do-servidor
 ```bash
 sudo nano /etc/ssh/sshd_config
 ```
->Altere as seguintes linhas para ficarem assim:
+> [!IMPORTANT]
+> Altere as seguintes linhas para ficarem assim:
 
 * PasswordAuthentication no
 * PermitRootLogin prohibit-password
