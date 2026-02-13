@@ -1,0 +1,38 @@
+services:
+  ts-server:
+    image: teamspeak
+    container_name: ts-server
+    restart: always
+    ports:
+      - 9987:9987/udp
+      - 10011:10011/tcp
+      - 30033:30033/tcp
+    environment:
+      TS3SERVER_LICENSE: accept
+    volumes:
+      - ./ts_data:/var/ts3server/
+    deploy:
+          resources:
+            limits:
+              cpus: '0.50'
+              memory: 512M
+            reservations:
+              memory: 128M
+
+
+  playit:
+    image: ghcr.io/playit-cloud/playit-agent:0.16
+    restart: always
+    healthcheck:
+          test: ["CMD-SHELL", "ping -c 1 1.1.1.1 || exit 1"]
+          interval: 1m
+          timeout: 10s
+          retries: 3
+    network_mode: host
+    environment:
+    - SECRET_KEY=INSERT HERE YOUR SECRET KEY
+    deploy:
+          resources:
+            limits:
+              cpus: '0.20'
+              memory: 128M
