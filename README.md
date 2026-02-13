@@ -1,2 +1,22 @@
-# b612-homelab
-Asteroid B-612 🪐 | Homelab: Automação com Docker Compose, segurança SSH e gestão de serviços em ambiente Ubuntu Server.
+# 🪐 Asteroid B-612 | Home Server Infrastructure
+
+Repositório dedicado à documentação e automação do meu ambiente de servidor local (**Homelab**), utilizando Ubuntu Server e Docker para orquestração de serviços.
+
+## Especificações Técnicas
+* **Host OS:** Ubuntu Server 22.04 LTS (ou a versão que você usou)
+* **Virtualização/Containers:** Docker & Docker Compose
+* **Protocolos de Acesso:** SSH (Ed25519 keys)
+
+## Serviços Implementados
+Atualmente, o "Asteroide" sustenta os seguintes módulos:
+* **Crafty Controller:** Painel de gerenciamento para instâncias de jogos.
+* **TeamSpeak 3 Server:** Infraestrutura de comunicação VoIP.
+
+## Segurança e Redes
+* Configuração de firewall (UFW) limitando portas externas.
+* Acesso remoto seguro via SSH com desativação de login por senha.
+
+## Como replicar
+1. Clone o repositório.
+2. Navegue até a pasta do serviço: `cd services/teamspeak`.
+3. Suba o container: `docker-compose up -d`.
