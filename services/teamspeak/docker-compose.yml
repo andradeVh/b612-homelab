@@ -30,7 +30,7 @@ services:
           retries: 3
     network_mode: host
     environment:
-    - SECRET_KEY=INSERT HERE YOUR SECRET KEY
+    - SECRET_KEY=${PLAYIT_SECRET}
     deploy:
           resources:
             limits:
