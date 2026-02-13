@@ -15,6 +15,7 @@
 
 # Define the log path for documentation
 LOG_FILE="/home/your-user/asteroid-b612/scripts/check.log"
+COMPOSE_FILE="/home/your-user/asteroid-b612/services/teamSpeak/docker-compose.yml"
 
 echo "[$(date +'%Y-%m-%d %H:%M:%S')] Checking the state of TeamSpeak service..." >> $LOG_FILE
 
@@ -24,7 +25,7 @@ if [ "$(docker ps -q -f name=ts-server)" ]; then
 else
     echo "TeamSpeak: Offline - Restarting..." >> $LOG_FILE
     # Command to restart if is offline
-    docker compose -f /home/your-user/asteroid-b612/services/teamspeak/docker-compose.yml up -d
+    /usr/local/bin/docker-compose -f "$COMPOSE_FILE" up -d >> "$LOG_FILE" 2>&1
 fi
 
 echo "------------------------------------------------" >> $LOG_FILE
