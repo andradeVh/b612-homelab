@@ -3,9 +3,9 @@
 Repositório dedicado à documentação e automação do meu ambiente de servidor local (**Homelab**), utilizando Ubuntu Server e Docker para orquestração de serviços.
 
 ## Especificações Técnicas
-* **Host OS:** Ubuntu Server 22.04 LTS (ou a versão que você usou)
+* **Host OS:** Ubuntu Server 22.04 LTS
 * **Virtualização/Containers:** Docker & Docker Compose
-* **Protocolos de Acesso:** SSH (Ed25519 keys)
+* **Protocolos de Acesso:** SSH
 
 ## Serviços Implementados
 Atualmente, o "Asteroide" sustenta os seguintes módulos:
@@ -13,7 +13,6 @@ Atualmente, o "Asteroide" sustenta os seguintes módulos:
 * **TeamSpeak 3 Server:** Infraestrutura de comunicação VoIP.
 
 ## Segurança e Redes
-* Configuração de firewall (UFW) limitando portas externas.
 * Acesso remoto seguro via SSH com desativação de login por senha.
 
 ## Como replicar
