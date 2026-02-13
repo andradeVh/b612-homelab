@@ -18,11 +18,13 @@ O **Asteroid B-612** é um ecossistema de infraestrutura resiliente focado em al
 ```text
 b612-homelab/
 ├── services/
-│   └── teamspeak/
-│       └── docker-compose.yml   # Definição dos containers
+│   ├── teamspeak/
+│   │   └── docker-compose.yml   # Servidor de Voz VOIP
+│   └── minecraft/
+│       └── docker-compose.yml   # Servidor de Jogo (Sandbox)
 └── scripts/
     ├── healthcheck.sh           # Lógica de auto-recuperação
-    └── check.log                # Histórico de integridade
+    └── check.log                # Histórico de integridade e auditoria
 ```
 
 ## Mecanismo de Self-Healing
